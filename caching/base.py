@@ -23,12 +23,20 @@ log.addHandler(NullHandler())
 
 FOREVER = 0
 NO_CACHE = -1
-CACHE_PREFIX = getattr(settings, 'CACHE_PREFIX', '')
+
+# cache settings changed from django 1.2 to 1.3
+try:
+    # try the django 1.2 way
+    CACHE_PREFIX = getattr(settings, 'CACHE_PREFIX', '')
+    scheme, _, _ = parse_backend_uri(settings.CACHE_BACKEND)
+    cache.scheme = scheme
+except AttributeError:
+    # get the new-style cache settings for django >=1.3
+    CACHE_PREFIX = cache.key_prefix
+    cache.scheme = cache.__class__.__name__.lower()
+    
 FLUSH = CACHE_PREFIX + ':flush:'
-
-scheme, _, _ = parse_backend_uri(settings.CACHE_BACKEND)
-cache.scheme = scheme
-
+    
 
 class CachingManager(models.Manager):
 
