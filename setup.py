@@ -5,7 +5,7 @@ import caching
 
 setup(
     name='django-cache-machine',
-    version=caching.__version__,
+    version='%s.unomena' % caching.__version__,
     description='Automatic caching and invalidation for Django models '
                 'through the ORM.',
     long_description=open('README.rst').read(),
@@ -19,8 +19,6 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
-        # I don't know what exactly this means, but why not?
-        'Environment :: Web Environment :: Mozilla',
         'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
