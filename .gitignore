@@ -1,2 +1,2 @@
-docs/_build
-*.py[co]
+.project
+.pydevproject
