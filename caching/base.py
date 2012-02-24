@@ -29,7 +29,7 @@ FETCH_BY_ID = getattr(settings, 'FETCH_BY_ID', False)
 try:
     # try the django 1.2 way
     CACHE_PREFIX = getattr(settings, 'CACHE_PREFIX', '')
-    scheme, _, _ = parse_backend_uri(settings.CACHE_BACKEND)
+    scheme, _, _ = cache.parse_backend_uri(settings.CACHE_BACKEND)
     cache.scheme = scheme
 except AttributeError:
     # get the new-style cache settings for django >=1.3

@@ -5,7 +5,7 @@ import caching
 
 setup(
     name='django-cache-machine',
-    version='%s.unomena.1' % caching.__version__,
+    version='%s.unomena.2' % caching.__version__,
     description='Automatic caching and invalidation for Django models '
                 'through the ORM.',
     long_description=open('README.rst').read(),
