@@ -2,7 +2,7 @@ import functools
 import logging
 
 from django.conf import settings
-from django.core.cache import cache
+from django.core.cache import cache, parse_backend_uri
 from django.db import models
 from django.db.models import signals
 from django.db.models.sql import query
